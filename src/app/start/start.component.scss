@@ -1,0 +1,31 @@
+#play-badge {
+    width: auto;
+    text-align: center;
+
+    #badge {
+        width: 80vw;
+    }
+    
+    @media (min-width: 900px) {
+        #badge {
+            width: 25vw;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        height: fit-content;
+        display: inline-block;
+    }
+}
+
+#legal {
+    color: #adadad;
+}
+
+#privacy {
+    width: calc(100% - 32px);
+    text-align: center;
+    position: absolute;
+    bottom: 16px;
+}

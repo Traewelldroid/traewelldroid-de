@@ -1,0 +1,9 @@
+#title {
+    width: auto;
+    text-align: center;
+    font-size: 32pt;
+
+    @media (min-width: 900px) {
+        font-size: 64pt;
+    }
+}
