@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./privacy.component.scss'],
   standalone: true
 })
-export class PrivacyComponent implements OnInit {
+export default class PrivacyComponent implements OnInit {
 
   constructor() { }
 

@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
     RouterLink
   ]
 })
-export class StartComponent implements OnInit {
+export default class StartComponent implements OnInit {
 
   constructor() { }
 
