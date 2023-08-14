@@ -28,7 +28,7 @@ jobs:
       - run: ng build
 
       - name: copy file via ssh key
-        uses: appleboy/scp-action@v0.2.0
+        uses: appleboy/scp-action@v0.1.4
         env:
           HOST: ${{ secrets.HOST }}
           USERNAME: ${{ secrets.USERNAME }}
