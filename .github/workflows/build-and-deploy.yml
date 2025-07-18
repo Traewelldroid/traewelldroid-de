@@ -31,5 +31,5 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           password: ${{ secrets.REMOTE_PW }}
           port: 22
-          source: "./dist/browser/*"
+          source: "./dist/traewelldroid-de/browser/*"
           target: ${{ secrets.REMOTE_PATH }}
