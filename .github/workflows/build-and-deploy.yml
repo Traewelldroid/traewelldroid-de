@@ -33,5 +33,5 @@ jobs:
           port: 22
           source: "./dist/traewelldroid-de/browser/*"
           target: ${{ secrets.REMOTE_PATH }}
-          strip_components: true
-          rm: true
+          strip_components: 1
+          rm: 1
