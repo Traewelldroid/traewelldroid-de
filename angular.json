@@ -70,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "traewelldroid-de:build:production"
+              "buildTarget": "traewelldroid-de:build:production"
             },
             "development": {
-              "browserTarget": "traewelldroid-de:build:development"
+              "buildTarget": "traewelldroid-de:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +81,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "traewelldroid-de:build"
+            "buildTarget": "traewelldroid-de:build"
           }
         },
         "test": {
