@@ -1,13 +1,13 @@
-#play-badge {
+.badge-container {
     width: auto;
     text-align: center;
 
-    #badge {
+    .badge {
         width: 80vw;
     }
     
     @media (min-width: 900px) {
-        #badge {
+        .badge {
             width: 25vw;
         }
     }

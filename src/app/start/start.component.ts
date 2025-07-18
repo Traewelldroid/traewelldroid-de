@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -6,15 +6,6 @@ import { RouterLink } from '@angular/router';
   templateUrl: './start.component.html',
   styleUrls: ['./start.component.scss'],
   standalone: true,
-  imports: [
-    RouterLink
-  ]
+  imports: [RouterLink],
 })
-export default class StartComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export default class StartComponent {}

@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-privacy',
   templateUrl: './privacy.component.html',
   styleUrls: ['./privacy.component.scss'],
-  standalone: true
+  standalone: true,
 })
-export default class PrivacyComponent implements OnInit {
+export default class PrivacyComponent {
+  private readonly meta = inject(Meta);
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
+    this.meta.updateTag({ name: 'robots', content: 'noindex' });
   }
-
 }
