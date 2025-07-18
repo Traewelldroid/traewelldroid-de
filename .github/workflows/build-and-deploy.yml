@@ -1,40 +1,30 @@
-name: Build and Deploy
+name: Build and Deploy Angular App
 
 on:
   push:
     branches:
-      - main
+      - main # Passe ggf. den Branch an
 
 jobs:
-  build:
-    # using Ubuntu
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1 #this installs node and npm for us
-        with:
-          node-version: "18.17.x"
+      - name: 🧾 Checkout Repository
+        uses: actions/checkout@v4
 
-      - uses: actions/cache@v1 # this allows for re-using node_modules caching, making builds a bit faster.
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - run: npm cache clean --force
-      - run: npm install
-      - run: npm install -g @angular/cli > /dev/null
-      - run: ng build
+          node-version: 20
 
-      - name: copy file via ssh key
-        uses: appleboy/scp-action@v0.1.4
-        env:
-          HOST: ${{ secrets.HOST }}
-          USERNAME: ${{ secrets.USERNAME }}
-          PORT: ${{ secrets.PORT }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-        with:
-          source: "./dist/traewelldroid-de"
-          target: ${{ secrets.WWW_DEST }}
-          strip_components: 2
+      - name: 📦 Install Dependencies
+        run: npm install
+
+      - name: 🏗️ Build Angular App
+        run: npm run build
+
+      - name: 📤 Deploy via SCP
+        run: |
+          echo "Deploying to ${{ secrets.REMOTE_HOST }}..."
+          scp -r dist/browser/* ${{ secrets.REMOTE_USER }}:${{ secrets.REMOTE_PW }}@${{ secrets.REMOTE_HOST }}:${{ secrets.REMOTE_PATH }}
