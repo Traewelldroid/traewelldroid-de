@@ -25,6 +25,11 @@ jobs:
         run: npm run build
 
       - name: 📤 Deploy via SCP
-        run: |
-          echo "Deploying to ${{ secrets.REMOTE_HOST }}..."
-          scp -r dist/browser/* ${{ secrets.REMOTE_USER }}:${{ secrets.REMOTE_PW }}@${{ secrets.REMOTE_HOST }}:${{ secrets.REMOTE_PATH }}
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          password: ${{ secrets.REMOTE_PW }}
+          port: 22
+          source: "./dist/browser/*"
+          target: ${{ secrets.REMOTE_PATH }}
